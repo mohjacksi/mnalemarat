@@ -11,8 +11,8 @@
             @method('PUT')
             @csrf
             <div class="form-group">
-                <label for="location">{{ trans('cruds.reportAccident.fields.location') }}</label>
-                <input class="form-control {{ $errors->has('location') ? 'is-invalid' : '' }}" type="text" name="location" id="location" value="{{ old('location', $reportAccident->location) }}">
+                <label class="required" for="location">{{ trans('cruds.reportAccident.fields.location') }}</label>
+                <input class="form-control {{ $errors->has('location') ? 'is-invalid' : '' }}" type="text" name="location" id="location" value="{{ old('location', $reportAccident->location) }}" required>
                 @if($errors->has('location'))
                     <div class="invalid-feedback">
                         {{ $errors->first('location') }}
@@ -41,8 +41,8 @@
                 <span class="help-block">{{ trans('cruds.reportAccident.fields.offender_id_number_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="car_number">{{ trans('cruds.reportAccident.fields.car_number') }}</label>
-                <input class="form-control {{ $errors->has('car_number') ? 'is-invalid' : '' }}" type="text" name="car_number" id="car_number" value="{{ old('car_number', $reportAccident->car_number) }}">
+                <label class="required" for="car_number">{{ trans('cruds.reportAccident.fields.car_number') }}</label>
+                <input class="form-control {{ $errors->has('car_number') ? 'is-invalid' : '' }}" type="text" name="car_number" id="car_number" value="{{ old('car_number', $reportAccident->car_number) }}" required>
                 @if($errors->has('car_number'))
                     <div class="invalid-feedback">
                         {{ $errors->first('car_number') }}
@@ -51,8 +51,8 @@
                 <span class="help-block">{{ trans('cruds.reportAccident.fields.car_number_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="issuer">{{ trans('cruds.reportAccident.fields.issuer') }}</label>
-                <input class="form-control {{ $errors->has('issuer') ? 'is-invalid' : '' }}" type="text" name="issuer" id="issuer" value="{{ old('issuer', $reportAccident->issuer) }}">
+                <label class="required" for="issuer">{{ trans('cruds.reportAccident.fields.issuer') }}</label>
+                <input class="form-control {{ $errors->has('issuer') ? 'is-invalid' : '' }}" type="text" name="issuer" id="issuer" value="{{ old('issuer', $reportAccident->issuer) }}" required>
                 @if($errors->has('issuer'))
                     <div class="invalid-feedback">
                         {{ $errors->first('issuer') }}
@@ -81,8 +81,8 @@
                 <span class="help-block">{{ trans('cruds.reportAccident.fields.accident_time_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="estimate_reference">{{ trans('cruds.reportAccident.fields.estimate_reference') }}</label>
-                <input class="form-control {{ $errors->has('estimate_reference') ? 'is-invalid' : '' }}" type="text" name="estimate_reference" id="estimate_reference" value="{{ old('estimate_reference', $reportAccident->estimate_reference) }}">
+                <label class="required" for="estimate_reference">{{ trans('cruds.reportAccident.fields.estimate_reference') }}</label>
+                <input class="form-control {{ $errors->has('estimate_reference') ? 'is-invalid' : '' }}" type="text" name="estimate_reference" id="estimate_reference" value="{{ old('estimate_reference', $reportAccident->estimate_reference) }}" required>
                 @if($errors->has('estimate_reference'))
                     <div class="invalid-feedback">
                         {{ $errors->first('estimate_reference') }}
@@ -91,8 +91,8 @@
                 <span class="help-block">{{ trans('cruds.reportAccident.fields.estimate_reference_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="estimate_date">{{ trans('cruds.reportAccident.fields.estimate_date') }}</label>
-                <input class="form-control date {{ $errors->has('estimate_date') ? 'is-invalid' : '' }}" type="text" name="estimate_date" id="estimate_date" value="{{ old('estimate_date', $reportAccident->estimate_date) }}">
+                <label class="required" for="estimate_date">{{ trans('cruds.reportAccident.fields.estimate_date') }}</label>
+                <input class="form-control date {{ $errors->has('estimate_date') ? 'is-invalid' : '' }}" type="text" name="estimate_date" id="estimate_date" value="{{ old('estimate_date', $reportAccident->estimate_date) }}" required>
                 @if($errors->has('estimate_date'))
                     <div class="invalid-feedback">
                         {{ $errors->first('estimate_date') }}
@@ -401,7 +401,7 @@
                 <span class="help-block">{{ trans('cruds.reportAccident.fields.notes_10_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="accident_photos">{{ trans('cruds.reportAccident.fields.accident_photos') }}</label>
+                <label class="required" for="accident_photos">{{ trans('cruds.reportAccident.fields.accident_photos') }}</label>
                 <div class="needsclick dropzone {{ $errors->has('accident_photos') ? 'is-invalid' : '' }}" id="accident_photos-dropzone">
                 </div>
                 @if($errors->has('accident_photos'))
@@ -490,19 +490,6 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.reportAccident.fields.dep_mang_4_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <div class="form-check {{ $errors->has('confidence') ? 'is-invalid' : '' }}">
-                    <input type="hidden" name="confidence" value="0">
-                    <input class="form-check-input" type="checkbox" name="confidence" id="confidence" value="1" {{ $reportAccident->confidence || old('confidence', 0) === 1 ? 'checked' : '' }}>
-                    <label class="form-check-label" for="confidence">{{ trans('cruds.reportAccident.fields.confidence') }}</label>
-                </div>
-                @if($errors->has('confidence'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('confidence') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.reportAccident.fields.confidence_helper') }}</span>
             </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">

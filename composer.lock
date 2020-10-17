@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "e48bb515728ee988b5858220df412f6d",
+    "content-hash": "301d690bcde8236d04fce29922b3f6c7",
     "packages": [
         {
             "name": "asm89/stack-cors",
@@ -2037,23 +2037,23 @@
         },
         {
             "name": "maennchen/zipstream-php",
-            "version": "1.2.0",
+            "version": "2.1.0",
             "source": {
                 "type": "git",
                 "url": "https://github.com/maennchen/ZipStream-PHP.git",
-                "reference": "6373eefe0b3274d7b702d81f2c99aa977ff97dc2"
+                "reference": "c4c5803cc1f93df3d2448478ef79394a5981cc58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/maennchen/ZipStream-PHP/zipball/6373eefe0b3274d7b702d81f2c99aa977ff97dc2",
-                "reference": "6373eefe0b3274d7b702d81f2c99aa977ff97dc2",
+                "url": "https://api.github.com/repos/maennchen/ZipStream-PHP/zipball/c4c5803cc1f93df3d2448478ef79394a5981cc58",
+                "reference": "c4c5803cc1f93df3d2448478ef79394a5981cc58",
                 "shasum": ""
             },
             "require": {
-                "ext-mbstring": "*",
                 "myclabs/php-enum": "^1.5",
                 "php": ">= 7.1",
-                "psr/http-message": "^1.0"
+                "psr/http-message": "^1.0",
+                "symfony/polyfill-mbstring": "^1.0"
             },
             "require-dev": {
                 "ext-zip": "*",
@@ -2077,12 +2077,12 @@
                     "email": "pabs@pablotron.org"
                 },
                 {
-                    "name": "Jesse Donat",
-                    "email": "donatj@gmail.com"
-                },
-                {
                     "name": "Jonatan Männchen",
                     "email": "jonatan@maennchen.ch"
+                },
+                {
+                    "name": "Jesse Donat",
+                    "email": "donatj@gmail.com"
                 },
                 {
                     "name": "András Kolesár",
@@ -2094,7 +2094,13 @@
                 "stream",
                 "zip"
             ],
-            "time": "2019-07-17T11:01:58+00:00"
+            "funding": [
+                {
+                    "url": "https://opencollective.com/zipstream",
+                    "type": "open_collective"
+                }
+            ],
+            "time": "2020-05-30T13:11:16+00:00"
         },
         {
             "name": "monolog/monolog",
@@ -2434,44 +2440,6 @@
                 "serialize"
             ],
             "time": "2020-09-06T17:02:15+00:00"
-        },
-        {
-            "name": "org_heigl/ghostscript",
-            "version": "2.3.2",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/heiglandreas/Org_Heigl_Ghostscript.git",
-                "reference": "fd73693a3f213427b585b45fa744c9cc60679f25"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/heiglandreas/Org_Heigl_Ghostscript/zipball/fd73693a3f213427b585b45fa744c9cc60679f25",
-                "reference": "fd73693a3f213427b585b45fa744c9cc60679f25",
-                "shasum": ""
-            },
-            "require-dev": {
-                "mockery/mockery": "^1.0",
-                "phpdocumentor/phpdocumentor": "^2.9",
-                "phpunit/phpunit": "^5.5||^6.0||^7.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Org_Heigl\\Ghostscript\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Andreas Heigl",
-                    "email": "andreas@heigl.org"
-                }
-            ],
-            "description": "A PHP-Wrapper around the Ghostscript-CLI",
-            "time": "2020-09-23T05:00:00+00:00"
         },
         {
             "name": "paragonie/random_compat",
@@ -3262,16 +3230,16 @@
         },
         {
             "name": "spatie/laravel-medialibrary",
-            "version": "7.19.0",
+            "version": "7.19.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/laravel-medialibrary.git",
-                "reference": "a7b75fe3730da8b6e0241629fa4c25c376e7863f"
+                "reference": "e10851e1611336d53aabb79e7c10cfc827cea7b9"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/a7b75fe3730da8b6e0241629fa4c25c376e7863f",
-                "reference": "a7b75fe3730da8b6e0241629fa4c25c376e7863f",
+                "url": "https://api.github.com/repos/spatie/laravel-medialibrary/zipball/e10851e1611336d53aabb79e7c10cfc827cea7b9",
+                "reference": "e10851e1611336d53aabb79e7c10cfc827cea7b9",
                 "shasum": ""
             },
             "require": {
@@ -3283,7 +3251,7 @@
                 "illuminate/pipeline": "~5.8.35|^6.0|^7.0",
                 "illuminate/support": "~5.8.35|^6.0|^7.0",
                 "league/flysystem": "^1.0.8",
-                "maennchen/zipstream-php": "^1.0",
+                "maennchen/zipstream-php": "^1.0|^2.0",
                 "php": "^7.2",
                 "spatie/image": "^1.4.0",
                 "spatie/pdf-to-image": "^2.0",
@@ -3348,31 +3316,34 @@
                 {
                     "url": "https://spatie.be/open-source/support-us",
                     "type": "custom"
+                },
+                {
+                    "url": "https://github.com/spatie",
+                    "type": "github"
                 }
             ],
-            "time": "2020-03-03T07:52:30+00:00"
+            "time": "2020-09-30T21:19:21+00:00"
         },
         {
             "name": "spatie/pdf-to-image",
-            "version": "v2.x-dev",
+            "version": "2.0.1",
             "source": {
                 "type": "git",
                 "url": "https://github.com/spatie/pdf-to-image.git",
-                "reference": "6718a89065c34dfadfbb2ca61eb1c3e6a956e503"
+                "reference": "3b140c4ef9a8cbb72ac51592a3f13d6a6b6d969e"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/spatie/pdf-to-image/zipball/6718a89065c34dfadfbb2ca61eb1c3e6a956e503",
-                "reference": "6718a89065c34dfadfbb2ca61eb1c3e6a956e503",
+                "url": "https://api.github.com/repos/spatie/pdf-to-image/zipball/3b140c4ef9a8cbb72ac51592a3f13d6a6b6d969e",
+                "reference": "3b140c4ef9a8cbb72ac51592a3f13d6a6b6d969e",
                 "shasum": ""
             },
             "require": {
-                "org_heigl/ghostscript": "^2.2",
-                "php": "^7.0"
+                "ext-imagick": "*",
+                "php": "^7.2"
             },
             "require-dev": {
-                "phpunit/phpunit": "^6.2",
-                "spatie/temporary-directory": "^1.1"
+                "phpunit/phpunit": "^8.0"
             },
             "type": "library",
             "autoload": {
@@ -3401,7 +3372,13 @@
                 "pdf-to-image",
                 "spatie"
             ],
-            "time": "2017-06-20T05:58:45+00:00"
+            "funding": [
+                {
+                    "url": "https://www.patreon.com/spatie",
+                    "type": "patreon"
+                }
+            ],
+            "time": "2020-04-29T08:21:17+00:00"
         },
         {
             "name": "spatie/temporary-directory",

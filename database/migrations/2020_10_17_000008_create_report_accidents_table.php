@@ -10,15 +10,15 @@ class CreateReportAccidentsTable extends Migration
     {
         Schema::create('report_accidents', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('location')->nullable();
+            $table->string('location');
             $table->string('offender')->nullable();
             $table->string('offender_id_number')->nullable();
-            $table->string('car_number')->nullable();
-            $table->string('issuer')->nullable();
+            $table->string('car_number');
+            $table->string('issuer');
             $table->date('date_of_accident')->nullable();
             $table->time('accident_time')->nullable();
-            $table->string('estimate_reference')->nullable();
-            $table->date('estimate_date')->nullable();
+            $table->string('estimate_reference');
+            $table->date('estimate_date');
             $table->string('damage_statement_1')->nullable();
             $table->decimal('damage_value_1', 15, 2)->nullable();
             $table->string('notes_1')->nullable();
@@ -57,7 +57,6 @@ class CreateReportAccidentsTable extends Migration
             $table->string('dep_mang_3')->nullable();
             $table->string('name_4')->nullable();
             $table->string('dep_mang_4')->nullable();
-            $table->boolean('confidence')->default(0)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

@@ -10,11 +10,11 @@ class CreateProjectsTable extends Migration
     {
         Schema::create('projects', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('the_contractor')->nullable();
+            $table->string('the_contractor');
             $table->string('purchase_order')->nullable();
             $table->date('date_of_purchase')->nullable();
-            $table->string('project_reference')->nullable();
-            $table->decimal('initial_project_value', 15, 2)->nullable();
+            $table->string('project_reference');
+            $table->decimal('initial_project_value', 15, 2);
             $table->date('date_of_commencement')->nullable();
             $table->date('assumed_date_of_receipt')->nullable();
             $table->date('date_of_receipt_project')->nullable();
@@ -28,7 +28,7 @@ class CreateProjectsTable extends Migration
             $table->string('project_state')->nullable();
             $table->integer('work_done')->nullable();
             $table->longText('notes')->nullable();
-            $table->string('project_name')->nullable();
+            $table->string('project_name');
             $table->date('operating_permission_date')->nullable();
             $table->date('date_of_delivery')->nullable();
             $table->integer('project_duration')->nullable();
@@ -39,10 +39,8 @@ class CreateProjectsTable extends Migration
             $table->date('final_receipt_date')->nullable();
             $table->integer('final_completion_percentage')->nullable();
             $table->string('delivery_recipient')->nullable();
-            $table->string('eng_name')->nullable();
-            $table->date('initial_inspection_date')->nullable();
+            $table->string('eng_name');
             $table->string('prim_receiving_com')->nullable();
-            $table->date('final_inspect_date')->nullable();
             $table->string('final_receiv_com')->nullable();
             $table->timestamps();
             $table->softDeletes();

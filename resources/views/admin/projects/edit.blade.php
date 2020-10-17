@@ -11,8 +11,8 @@
             @method('PUT')
             @csrf
             <div class="form-group">
-                <label for="project_name">{{ trans('cruds.project.fields.project_name') }}</label>
-                <input class="form-control {{ $errors->has('project_name') ? 'is-invalid' : '' }}" type="text" name="project_name" id="project_name" value="{{ old('project_name', $project->project_name) }}">
+                <label class="required" for="project_name">{{ trans('cruds.project.fields.project_name') }}</label>
+                <input class="form-control {{ $errors->has('project_name') ? 'is-invalid' : '' }}" type="text" name="project_name" id="project_name" value="{{ old('project_name', $project->project_name) }}" required>
                 @if($errors->has('project_name'))
                     <div class="invalid-feedback">
                         {{ $errors->first('project_name') }}
@@ -21,8 +21,8 @@
                 <span class="help-block">{{ trans('cruds.project.fields.project_name_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="project_reference">{{ trans('cruds.project.fields.project_reference') }}</label>
-                <input class="form-control {{ $errors->has('project_reference') ? 'is-invalid' : '' }}" type="text" name="project_reference" id="project_reference" value="{{ old('project_reference', $project->project_reference) }}">
+                <label class="required" for="project_reference">{{ trans('cruds.project.fields.project_reference') }}</label>
+                <input class="form-control {{ $errors->has('project_reference') ? 'is-invalid' : '' }}" type="text" name="project_reference" id="project_reference" value="{{ old('project_reference', $project->project_reference) }}" required>
                 @if($errors->has('project_reference'))
                     <div class="invalid-feedback">
                         {{ $errors->first('project_reference') }}
@@ -31,8 +31,8 @@
                 <span class="help-block">{{ trans('cruds.project.fields.project_reference_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="eng_name">{{ trans('cruds.project.fields.eng_name') }}</label>
-                <input class="form-control {{ $errors->has('eng_name') ? 'is-invalid' : '' }}" type="text" name="eng_name" id="eng_name" value="{{ old('eng_name', $project->eng_name) }}">
+                <label class="required" for="eng_name">{{ trans('cruds.project.fields.eng_name') }}</label>
+                <input class="form-control {{ $errors->has('eng_name') ? 'is-invalid' : '' }}" type="text" name="eng_name" id="eng_name" value="{{ old('eng_name', $project->eng_name) }}" required>
                 @if($errors->has('eng_name'))
                     <div class="invalid-feedback">
                         {{ $errors->first('eng_name') }}
@@ -51,8 +51,8 @@
                 <span class="help-block">{{ trans('cruds.project.fields.operating_permission_date_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="initial_project_value">{{ trans('cruds.project.fields.initial_project_value') }}</label>
-                <input class="form-control {{ $errors->has('initial_project_value') ? 'is-invalid' : '' }}" type="number" name="initial_project_value" id="initial_project_value" value="{{ old('initial_project_value', $project->initial_project_value) }}" step="0.01">
+                <label class="required" for="initial_project_value">{{ trans('cruds.project.fields.initial_project_value') }}</label>
+                <input class="form-control {{ $errors->has('initial_project_value') ? 'is-invalid' : '' }}" type="number" name="initial_project_value" id="initial_project_value" value="{{ old('initial_project_value', $project->initial_project_value) }}" step="0.01" required>
                 @if($errors->has('initial_project_value'))
                     <div class="invalid-feedback">
                         {{ $errors->first('initial_project_value') }}
@@ -81,8 +81,8 @@
                 <span class="help-block">{{ trans('cruds.project.fields.date_of_purchase_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="the_contractor">{{ trans('cruds.project.fields.the_contractor') }}</label>
-                <input class="form-control {{ $errors->has('the_contractor') ? 'is-invalid' : '' }}" type="text" name="the_contractor" id="the_contractor" value="{{ old('the_contractor', $project->the_contractor) }}">
+                <label class="required" for="the_contractor">{{ trans('cruds.project.fields.the_contractor') }}</label>
+                <input class="form-control {{ $errors->has('the_contractor') ? 'is-invalid' : '' }}" type="text" name="the_contractor" id="the_contractor" value="{{ old('the_contractor', $project->the_contractor) }}" required>
                 @if($errors->has('the_contractor'))
                     <div class="invalid-feedback">
                         {{ $errors->first('the_contractor') }}
@@ -181,16 +181,6 @@
                 <span class="help-block">{{ trans('cruds.project.fields.current_payment_value_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="initial_inspection_date">{{ trans('cruds.project.fields.initial_inspection_date') }}</label>
-                <input class="form-control date {{ $errors->has('initial_inspection_date') ? 'is-invalid' : '' }}" type="text" name="initial_inspection_date" id="initial_inspection_date" value="{{ old('initial_inspection_date', $project->initial_inspection_date) }}">
-                @if($errors->has('initial_inspection_date'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('initial_inspection_date') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.project.fields.initial_inspection_date_helper') }}</span>
-            </div>
-            <div class="form-group">
                 <label for="prim_receiving_com">{{ trans('cruds.project.fields.prim_receiving_com') }}</label>
                 <input class="form-control {{ $errors->has('prim_receiving_com') ? 'is-invalid' : '' }}" type="text" name="prim_receiving_com" id="prim_receiving_com" value="{{ old('prim_receiving_com', $project->prim_receiving_com) }}">
                 @if($errors->has('prim_receiving_com'))
@@ -219,16 +209,6 @@
                     </div>
                 @endif
                 <span class="help-block">{{ trans('cruds.project.fields.date_of_receipt_project_helper') }}</span>
-            </div>
-            <div class="form-group">
-                <label for="final_inspect_date">{{ trans('cruds.project.fields.final_inspect_date') }}</label>
-                <input class="form-control date {{ $errors->has('final_inspect_date') ? 'is-invalid' : '' }}" type="text" name="final_inspect_date" id="final_inspect_date" value="{{ old('final_inspect_date', $project->final_inspect_date) }}">
-                @if($errors->has('final_inspect_date'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('final_inspect_date') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.project.fields.final_inspect_date_helper') }}</span>
             </div>
             <div class="form-group">
                 <label for="final_receiv_com">{{ trans('cruds.project.fields.final_receiv_com') }}</label>
@@ -361,7 +341,7 @@
                 <span class="help-block">{{ trans('cruds.project.fields.delivery_recipient_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="attachments">{{ trans('cruds.project.fields.attachments') }}</label>
+                <label class="required" for="attachments">{{ trans('cruds.project.fields.attachments') }}</label>
                 <div class="needsclick dropzone {{ $errors->has('attachments') ? 'is-invalid' : '' }}" id="attachments-dropzone">
                 </div>
                 @if($errors->has('attachments'))

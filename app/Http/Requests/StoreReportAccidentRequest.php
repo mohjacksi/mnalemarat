@@ -19,7 +19,7 @@ class StoreReportAccidentRequest extends FormRequest
         return [
             'location'            => [
                 'string',
-                'nullable',
+                'required',
             ],
             'offender'            => [
                 'string',
@@ -31,11 +31,11 @@ class StoreReportAccidentRequest extends FormRequest
             ],
             'car_number'          => [
                 'string',
-                'nullable',
+                'required',
             ],
             'issuer'              => [
                 'string',
-                'nullable',
+                'required',
             ],
             'date_of_accident'    => [
                 'date_format:' . config('panel.date_format'),
@@ -47,11 +47,11 @@ class StoreReportAccidentRequest extends FormRequest
             ],
             'estimate_reference'  => [
                 'string',
-                'nullable',
+                'required',
             ],
             'estimate_date'       => [
+                'required',
                 'date_format:' . config('panel.date_format'),
-                'nullable',
             ],
             'damage_statement_1'  => [
                 'string',
@@ -132,6 +132,9 @@ class StoreReportAccidentRequest extends FormRequest
             'notes_10'            => [
                 'string',
                 'nullable',
+            ],
+            'accident_photos.*'   => [
+                'required',
             ],
             'name_1'              => [
                 'string',

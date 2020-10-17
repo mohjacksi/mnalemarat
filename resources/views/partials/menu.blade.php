@@ -54,37 +54,59 @@
                             </a>
                         </li>
                     @endcan
+                    @can('audit_log_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.audit-logs.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/audit-logs") || request()->is("admin/audit-logs/*") ? "active" : "" }}">
+                                <i class="fa-fw fas fa-file-alt c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.auditLog.title') }}
+                            </a>
+                        </li>
+                    @endcan
                 </ul>
             </li>
         @endcan
-        @can('project_access')
-            <li class="c-sidebar-nav-item">
-                <a href="{{ route("admin.projects.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/projects") || request()->is("admin/projects/*") ? "active" : "" }}">
-                    <i class="fa-fw far fa-building c-sidebar-nav-icon">
+        @can('follow_up_access')
+            <li class="c-sidebar-nav-dropdown">
+                <a class="c-sidebar-nav-dropdown-toggle" href="#">
+                    <i class="fa-fw fas fa-search c-sidebar-nav-icon">
 
                     </i>
-                    {{ trans('cruds.project.title') }}
+                    {{ trans('cruds.followUp.title') }}
                 </a>
-            </li>
-        @endcan
-        @can('property_access')
-            <li class="c-sidebar-nav-item">
-                <a href="{{ route("admin.properties.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/properties") || request()->is("admin/properties/*") ? "active" : "" }}">
-                    <i class="fa-fw far fa-arrow-alt-circle-up c-sidebar-nav-icon">
+                <ul class="c-sidebar-nav-dropdown-items">
+                    @can('project_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.projects.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/projects") || request()->is("admin/projects/*") ? "active" : "" }}">
+                                <i class="fa-fw far fa-building c-sidebar-nav-icon">
 
-                    </i>
-                    {{ trans('cruds.property.title') }}
-                </a>
-            </li>
-        @endcan
-        @can('report_accident_access')
-            <li class="c-sidebar-nav-item">
-                <a href="{{ route("admin.report-accidents.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/report-accidents") || request()->is("admin/report-accidents/*") ? "active" : "" }}">
-                    <i class="fa-fw fas fa-car c-sidebar-nav-icon">
+                                </i>
+                                {{ trans('cruds.project.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                    @can('property_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.properties.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/properties") || request()->is("admin/properties/*") ? "active" : "" }}">
+                                <i class="fa-fw far fa-arrow-alt-circle-up c-sidebar-nav-icon">
 
-                    </i>
-                    {{ trans('cruds.reportAccident.title') }}
-                </a>
+                                </i>
+                                {{ trans('cruds.property.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                    @can('report_accident_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.report-accidents.index") }}" class="c-sidebar-nav-link {{ request()->is("admin/report-accidents") || request()->is("admin/report-accidents/*") ? "active" : "" }}">
+                                <i class="fa-fw fas fa-car c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.reportAccident.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                </ul>
             </li>
         @endcan
         @if(file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php')))

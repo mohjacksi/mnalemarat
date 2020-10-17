@@ -44,6 +44,9 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     Route::post('report-accidents/media', 'ReportAccidentController@storeMedia')->name('report-accidents.storeMedia');
     Route::post('report-accidents/ckmedia', 'ReportAccidentController@storeCKEditorImages')->name('report-accidents.storeCKEditorImages');
     Route::resource('report-accidents', 'ReportAccidentController');
+
+    // Audit Logs
+    Route::resource('audit-logs', 'AuditLogsController', ['except' => ['create', 'store', 'edit', 'update', 'destroy']]);
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
 // Change password

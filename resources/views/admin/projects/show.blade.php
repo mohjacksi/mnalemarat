@@ -153,14 +153,6 @@
                     </tr>
                     <tr>
                         <th>
-                            {{ trans('cruds.project.fields.initial_inspection_date') }}
-                        </th>
-                        <td>
-                            {{ $project->initial_inspection_date }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
                             {{ trans('cruds.project.fields.prim_receiving_com') }}
                         </th>
                         <td>
@@ -181,14 +173,6 @@
                         </th>
                         <td>
                             {{ $project->date_of_receipt_project }}
-                        </td>
-                    </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.project.fields.final_inspect_date') }}
-                        </th>
-                        <td>
-                            {{ $project->final_inspect_date }}
                         </td>
                     </tr>
                     <tr>

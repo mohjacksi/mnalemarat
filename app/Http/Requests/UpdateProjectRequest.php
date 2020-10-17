@@ -20,19 +20,22 @@ class UpdateProjectRequest extends FormRequest
             'project_name'                => [
                 'string',
                 'max:50',
-                'nullable',
+                'required',
             ],
             'project_reference'           => [
                 'string',
-                'nullable',
+                'required',
             ],
             'eng_name'                    => [
                 'string',
-                'nullable',
+                'required',
             ],
             'operating_permission_date'   => [
                 'date_format:' . config('panel.date_format'),
                 'nullable',
+            ],
+            'initial_project_value'       => [
+                'required',
             ],
             'purchase_order'              => [
                 'string',
@@ -45,7 +48,7 @@ class UpdateProjectRequest extends FormRequest
             'the_contractor'              => [
                 'string',
                 'max:50',
-                'nullable',
+                'required',
             ],
             'date_of_delivery'            => [
                 'date_format:' . config('panel.date_format'),
@@ -71,10 +74,6 @@ class UpdateProjectRequest extends FormRequest
                 'min:-2147483648',
                 'max:2147483647',
             ],
-            'initial_inspection_date'     => [
-                'date_format:' . config('panel.date_format'),
-                'nullable',
-            ],
             'prim_receiving_com'          => [
                 'string',
                 'nullable',
@@ -84,10 +83,6 @@ class UpdateProjectRequest extends FormRequest
                 'nullable',
             ],
             'date_of_receipt_project'     => [
-                'date_format:' . config('panel.date_format'),
-                'nullable',
-            ],
-            'final_inspect_date'          => [
                 'date_format:' . config('panel.date_format'),
                 'nullable',
             ],

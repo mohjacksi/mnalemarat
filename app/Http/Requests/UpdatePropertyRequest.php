@@ -19,11 +19,11 @@ class UpdatePropertyRequest extends FormRequest
         return [
             'propriety_name'      => [
                 'string',
-                'nullable',
+                'required',
             ],
             'location'            => [
                 'string',
-                'nullable',
+                'required',
             ],
             'contract_number'     => [
                 'string',
@@ -34,16 +34,16 @@ class UpdatePropertyRequest extends FormRequest
                 'nullable',
             ],
             'date_of_preview'     => [
+                'required',
                 'date_format:' . config('panel.date_format'),
-                'nullable',
             ],
             'estimate_reference'  => [
                 'string',
-                'nullable',
+                'required',
             ],
             'estimate_date'       => [
+                'required',
                 'date_format:' . config('panel.date_format'),
-                'nullable',
             ],
             'damage_statement_1'  => [
                 'string',

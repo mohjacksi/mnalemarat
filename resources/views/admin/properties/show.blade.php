@@ -395,14 +395,6 @@
                             {{ $property->dep_mang_4 }}
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.property.fields.confidence') }}
-                        </th>
-                        <td>
-                            <input type="checkbox" disabled="disabled" {{ $property->confidence ? 'checked' : '' }}>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

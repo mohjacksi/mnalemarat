@@ -10,13 +10,13 @@ class CreatePropertiesTable extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('propriety_name')->nullable();
-            $table->string('location')->nullable();
+            $table->string('propriety_name');
+            $table->string('location');
             $table->string('contract_number')->nullable();
             $table->string('tenant_name')->nullable();
-            $table->date('date_of_preview')->nullable();
-            $table->string('estimate_reference')->nullable();
-            $table->date('estimate_date')->nullable();
+            $table->date('date_of_preview');
+            $table->string('estimate_reference');
+            $table->date('estimate_date');
             $table->string('damage_statement_1')->nullable();
             $table->decimal('damage_value_1', 15, 2)->nullable();
             $table->string('notes_1')->nullable();
@@ -55,7 +55,6 @@ class CreatePropertiesTable extends Migration
             $table->string('dep_mang_3')->nullable();
             $table->string('name_4')->nullable();
             $table->string('dep_mang_4')->nullable();
-            $table->boolean('confidence')->default(0)->nullable();
             $table->timestamps();
             $table->softDeletes();
         });

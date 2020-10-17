@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Traits\Auditable;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,7 +13,7 @@ use \DateTimeInterface;
 
 class Project extends Model implements HasMedia
 {
-    use SoftDeletes, HasMediaTrait;
+    use SoftDeletes, HasMediaTrait, Auditable;
 
     public $table = 'projects';
 
@@ -21,17 +22,18 @@ class Project extends Model implements HasMedia
         'images',
     ];
 
-    const PROJECT_STATE_SELECT = [
-        'جاري'  => 'جاري',
-        'منجز'  => 'منجز',
-        'معلق'  => 'معلق',
-        'متوقف' => 'متوقف',
-    ];
-
     const SAMPLES_APPROVAL_SELECT = [
         'لم يتم الاعتماد' => 'لم يتم الاعتماد',
         'جزئي'            => 'جزئي',
         'مكتمل'           => 'مكتمل',
+    ];
+
+    const PROJECT_STATE_SELECT = [
+        'جاري'          => 'جاري',
+        'مسلتم إبتدائي' => 'مسلتم إبتدائي',
+        'مستلم نهائي'   => 'مستلم نهائي',
+        'معلق'          => 'معلق',
+        'متوقف'         => 'متوقف',
     ];
 
     const DELIVERY_RECIPIENT_SELECT = [
@@ -46,11 +48,47 @@ class Project extends Model implements HasMedia
         'date_of_delivery',
         'date_of_commencement',
         'assumed_date_of_receipt',
-        'initial_inspection_date',
         'initial_receipt_date',
         'date_of_receipt_project',
-        'final_inspect_date',
         'final_receipt_date',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+    protected $fillable = [
+        'project_name',
+        'project_reference',
+        'eng_name',
+        'operating_permission_date',
+        'initial_project_value',
+        'purchase_order',
+        'date_of_purchase',
+        'the_contractor',
+        'date_of_delivery',
+        'date_of_commencement',
+        'project_duration',
+        'assumed_date_of_receipt',
+        'samples_approval',
+        'completion_rate',
+        'current_batch_number',
+        'current_payment_value',
+        'prim_receiving_com',
+        'initial_receipt_date',
+        'date_of_receipt_project',
+        'final_receiv_com',
+        'final_receipt_date',
+        'final_completion_percentage',
+        'delay_days',
+        'justify_delay',
+        'work_done',
+        'pay_bef_end',
+        'reserved_rate',
+        'warranty',
+        'final_payment',
+        'project_state',
+        'delivery_recipient',
+        'notes',
         'created_at',
         'updated_at',
         'deleted_at',
@@ -72,46 +110,6 @@ class Project extends Model implements HasMedia
         'الدفعة رقم 13' => 'الدفعة رقم 13',
         'الدفعة رقم 14' => 'الدفعة رقم 14',
         'الدفعة رقم 15' => 'الدفعة رقم 15',
-    ];
-
-    protected $fillable = [
-        'project_name',
-        'project_reference',
-        'eng_name',
-        'operating_permission_date',
-        'initial_project_value',
-        'purchase_order',
-        'date_of_purchase',
-        'the_contractor',
-        'date_of_delivery',
-        'date_of_commencement',
-        'project_duration',
-        'assumed_date_of_receipt',
-        'samples_approval',
-        'completion_rate',
-        'current_batch_number',
-        'current_payment_value',
-        'initial_inspection_date',
-        'prim_receiving_com',
-        'initial_receipt_date',
-        'date_of_receipt_project',
-        'final_inspect_date',
-        'final_receiv_com',
-        'final_receipt_date',
-        'final_completion_percentage',
-        'delay_days',
-        'justify_delay',
-        'work_done',
-        'pay_bef_end',
-        'reserved_rate',
-        'warranty',
-        'final_payment',
-        'project_state',
-        'delivery_recipient',
-        'notes',
-        'created_at',
-        'updated_at',
-        'deleted_at',
     ];
 
     protected function serializeDate(DateTimeInterface $date)
@@ -175,16 +173,6 @@ class Project extends Model implements HasMedia
         $this->attributes['assumed_date_of_receipt'] = $value ? Carbon::createFromFormat(config('panel.date_format'), $value)->format('Y-m-d') : null;
     }
 
-    public function getInitialInspectionDateAttribute($value)
-    {
-        return $value ? Carbon::parse($value)->format(config('panel.date_format')) : null;
-    }
-
-    public function setInitialInspectionDateAttribute($value)
-    {
-        $this->attributes['initial_inspection_date'] = $value ? Carbon::createFromFormat(config('panel.date_format'), $value)->format('Y-m-d') : null;
-    }
-
     public function getInitialReceiptDateAttribute($value)
     {
         return $value ? Carbon::parse($value)->format(config('panel.date_format')) : null;
@@ -203,16 +191,6 @@ class Project extends Model implements HasMedia
     public function setDateOfReceiptProjectAttribute($value)
     {
         $this->attributes['date_of_receipt_project'] = $value ? Carbon::createFromFormat(config('panel.date_format'), $value)->format('Y-m-d') : null;
-    }
-
-    public function getFinalInspectDateAttribute($value)
-    {
-        return $value ? Carbon::parse($value)->format(config('panel.date_format')) : null;
-    }
-
-    public function setFinalInspectDateAttribute($value)
-    {
-        $this->attributes['final_inspect_date'] = $value ? Carbon::createFromFormat(config('panel.date_format'), $value)->format('Y-m-d') : null;
     }
 
     public function getFinalReceiptDateAttribute($value)

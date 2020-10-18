@@ -134,6 +134,116 @@ class HomeController
             $settings5['fields'] = [];
         }
 
-        return view('home', compact('chart1', 'chart2', 'chart3', 'settings4', 'settings5'));
+        $settings6 = [
+            'chart_title'           => 'نسبة الإنجاز الجارية',
+            'chart_type'            => 'line',
+            'report_type'           => 'group_by_date',
+            'model'                 => 'App\\Project',
+            'group_by_field'        => 'date_of_purchase',
+            'group_by_period'       => 'day',
+            'aggregate_function'    => 'sum',
+            'aggregate_field'       => 'completion_rate',
+            'filter_field'          => 'created_at',
+            'group_by_field_format' => 'Y-m-d',
+            'column_class'          => 'col-md-6',
+            'entries_number'        => '5',
+        ];
+
+        $chart6 = new LaravelChart($settings6);
+
+        $settings7 = [
+            'chart_title'           => 'تقارير الحوادث',
+            'chart_type'            => 'latest_entries',
+            'report_type'           => 'group_by_date',
+            'model'                 => 'App\\ReportAccident',
+            'group_by_field'        => 'date_of_accident',
+            'group_by_period'       => 'day',
+            'aggregate_function'    => 'count',
+            'filter_field'          => 'created_at',
+            'group_by_field_format' => 'Y-m-d',
+            'column_class'          => 'col-md-4',
+            'entries_number'        => '10',
+            'fields'                => [
+                'id'       => '',
+                'location' => '',
+            ],
+        ];
+
+        $settings7['data'] = [];
+
+        if (class_exists($settings7['model'])) {
+            $settings7['data'] = $settings7['model']::latest()
+                ->take($settings7['entries_number'])
+                ->get();
+        }
+
+        if (!array_key_exists('fields', $settings7)) {
+            $settings7['fields'] = [];
+        }
+
+        $settings8 = [
+            'chart_title'           => 'اخلاء الممتلكات',
+            'chart_type'            => 'latest_entries',
+            'report_type'           => 'group_by_date',
+            'model'                 => 'App\\Property',
+            'group_by_field'        => 'date_of_preview',
+            'group_by_period'       => 'day',
+            'aggregate_function'    => 'count',
+            'filter_field'          => 'created_at',
+            'group_by_field_format' => 'Y-m-d',
+            'column_class'          => 'col-md-4',
+            'entries_number'        => '10',
+            'fields'                => [
+                'id'             => '',
+                'propriety_name' => '',
+            ],
+        ];
+
+        $settings8['data'] = [];
+
+        if (class_exists($settings8['model'])) {
+            $settings8['data'] = $settings8['model']::latest()
+                ->take($settings8['entries_number'])
+                ->get();
+        }
+
+        if (!array_key_exists('fields', $settings8)) {
+            $settings8['fields'] = [];
+        }
+
+        $settings9 = [
+            'chart_title'           => 'المشاريع',
+            'chart_type'            => 'latest_entries',
+            'report_type'           => 'group_by_date',
+            'model'                 => 'App\\Project',
+            'group_by_field'        => 'date_of_purchase',
+            'group_by_period'       => 'day',
+            'aggregate_function'    => 'count',
+            'filter_field'          => 'created_at',
+            'group_by_field_format' => 'Y-m-d',
+            'column_class'          => 'col-md-12',
+            'entries_number'        => '10',
+            'fields'                => [
+                'id'                          => '',
+                'initial_project_value'       => '',
+                'completion_rate'             => '',
+                'current_payment_value'       => '',
+                'final_completion_percentage' => '',
+            ],
+        ];
+
+        $settings9['data'] = [];
+
+        if (class_exists($settings9['model'])) {
+            $settings9['data'] = $settings9['model']::latest()
+                ->take($settings9['entries_number'])
+                ->get();
+        }
+
+        if (!array_key_exists('fields', $settings9)) {
+            $settings9['fields'] = [];
+        }
+
+        return view('home', compact('chart1', 'chart2', 'chart3', 'settings4', 'settings5', 'chart6', 'settings7', 'settings8', 'settings9'));
     }
 }

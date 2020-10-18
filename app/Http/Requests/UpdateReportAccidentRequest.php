@@ -19,7 +19,7 @@ class UpdateReportAccidentRequest extends FormRequest
         return [
             'location'            => [
                 'string',
-                'nullable',
+                'required',
             ],
             'offender'            => [
                 'string',
@@ -31,11 +31,11 @@ class UpdateReportAccidentRequest extends FormRequest
             ],
             'car_number'          => [
                 'string',
-                'nullable',
+                'required',
             ],
             'issuer'              => [
                 'string',
-                'nullable',
+                'required',
             ],
             'date_of_accident'    => [
                 'date_format:' . config('panel.date_format'),
@@ -47,11 +47,11 @@ class UpdateReportAccidentRequest extends FormRequest
             ],
             'estimate_reference'  => [
                 'string',
-                'nullable',
+                'required',
             ],
             'estimate_date'       => [
+                'required',
                 'date_format:' . config('panel.date_format'),
-                'nullable',
             ],
             'damage_statement_1'  => [
                 'string',

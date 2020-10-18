@@ -29,31 +29,19 @@
                             {{ trans('cruds.project.fields.project_name') }}
                         </th>
                         <th>
-                            {{ trans('cruds.project.fields.project_reference') }}
-                        </th>
-                        <th>
                             {{ trans('cruds.project.fields.eng_name') }}
                         </th>
                         <th>
                             {{ trans('cruds.project.fields.operating_permission_date') }}
                         </th>
                         <th>
-                            {{ trans('cruds.project.fields.initial_project_value') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.project.fields.purchase_order') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.project.fields.date_of_purchase') }}
-                        </th>
-                        <th>
                             {{ trans('cruds.project.fields.the_contractor') }}
                         </th>
                         <th>
-                            {{ trans('cruds.project.fields.date_of_delivery') }}
+                            {{ trans('cruds.project.fields.date_of_commencement') }}
                         </th>
                         <th>
-                            {{ trans('cruds.project.fields.date_of_commencement') }}
+                            {{ trans('cruds.project.fields.project_duration') }}
                         </th>
                         <th>
                             &nbsp;
@@ -73,31 +61,19 @@
                                 {{ $project->project_name ?? '' }}
                             </td>
                             <td>
-                                {{ $project->project_reference ?? '' }}
-                            </td>
-                            <td>
                                 {{ $project->eng_name ?? '' }}
                             </td>
                             <td>
                                 {{ $project->operating_permission_date ?? '' }}
                             </td>
                             <td>
-                                {{ $project->initial_project_value ?? '' }}
-                            </td>
-                            <td>
-                                {{ $project->purchase_order ?? '' }}
-                            </td>
-                            <td>
-                                {{ $project->date_of_purchase ?? '' }}
-                            </td>
-                            <td>
                                 {{ $project->the_contractor ?? '' }}
                             </td>
                             <td>
-                                {{ $project->date_of_delivery ?? '' }}
+                                {{ $project->date_of_commencement ?? '' }}
                             </td>
                             <td>
-                                {{ $project->date_of_commencement ?? '' }}
+                                {{ $project->project_duration ?? '' }}
                             </td>
                             <td>
                                 @can('project_show')

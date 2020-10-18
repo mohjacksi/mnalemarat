@@ -360,7 +360,7 @@
                 <span class="help-block">{{ trans('cruds.project.fields.delivery_recipient_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="attachments">{{ trans('cruds.project.fields.attachments') }}</label>
+                <label class="required" for="attachments">{{ trans('cruds.project.fields.attachments') }}</label>
                 <div class="needsclick dropzone {{ $errors->has('attachments') ? 'is-invalid' : '' }}" id="attachments-dropzone">
                 </div>
                 @if($errors->has('attachments'))

@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Traits\Auditable;
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
@@ -12,7 +13,7 @@ use \DateTimeInterface;
 
 class Property extends Model implements HasMedia
 {
-    use SoftDeletes, HasMediaTrait;
+    use SoftDeletes, HasMediaTrait, Auditable;
 
     public $table = 'properties';
 
@@ -74,7 +75,6 @@ class Property extends Model implements HasMedia
         'dep_mang_3',
         'name_4',
         'dep_mang_4',
-        'confidence',
         'created_at',
         'updated_at',
         'deleted_at',

@@ -10,8 +10,8 @@
         <form method="POST" action="{{ route("admin.properties.store") }}" enctype="multipart/form-data">
             @csrf
             <div class="form-group">
-                <label for="propriety_name">{{ trans('cruds.property.fields.propriety_name') }}</label>
-                <input class="form-control {{ $errors->has('propriety_name') ? 'is-invalid' : '' }}" type="text" name="propriety_name" id="propriety_name" value="{{ old('propriety_name', '') }}">
+                <label class="required" for="propriety_name">{{ trans('cruds.property.fields.propriety_name') }}</label>
+                <input class="form-control {{ $errors->has('propriety_name') ? 'is-invalid' : '' }}" type="text" name="propriety_name" id="propriety_name" value="{{ old('propriety_name', '') }}" required>
                 @if($errors->has('propriety_name'))
                     <div class="invalid-feedback">
                         {{ $errors->first('propriety_name') }}
@@ -20,8 +20,8 @@
                 <span class="help-block">{{ trans('cruds.property.fields.propriety_name_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="location">{{ trans('cruds.property.fields.location') }}</label>
-                <input class="form-control {{ $errors->has('location') ? 'is-invalid' : '' }}" type="text" name="location" id="location" value="{{ old('location', '') }}">
+                <label class="required" for="location">{{ trans('cruds.property.fields.location') }}</label>
+                <input class="form-control {{ $errors->has('location') ? 'is-invalid' : '' }}" type="text" name="location" id="location" value="{{ old('location', '') }}" required>
                 @if($errors->has('location'))
                     <div class="invalid-feedback">
                         {{ $errors->first('location') }}
@@ -50,8 +50,8 @@
                 <span class="help-block">{{ trans('cruds.property.fields.tenant_name_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="date_of_preview">{{ trans('cruds.property.fields.date_of_preview') }}</label>
-                <input class="form-control date {{ $errors->has('date_of_preview') ? 'is-invalid' : '' }}" type="text" name="date_of_preview" id="date_of_preview" value="{{ old('date_of_preview') }}">
+                <label class="required" for="date_of_preview">{{ trans('cruds.property.fields.date_of_preview') }}</label>
+                <input class="form-control date {{ $errors->has('date_of_preview') ? 'is-invalid' : '' }}" type="text" name="date_of_preview" id="date_of_preview" value="{{ old('date_of_preview') }}" required>
                 @if($errors->has('date_of_preview'))
                     <div class="invalid-feedback">
                         {{ $errors->first('date_of_preview') }}
@@ -60,8 +60,8 @@
                 <span class="help-block">{{ trans('cruds.property.fields.date_of_preview_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="estimate_reference">{{ trans('cruds.property.fields.estimate_reference') }}</label>
-                <input class="form-control {{ $errors->has('estimate_reference') ? 'is-invalid' : '' }}" type="text" name="estimate_reference" id="estimate_reference" value="{{ old('estimate_reference', '') }}">
+                <label class="required" for="estimate_reference">{{ trans('cruds.property.fields.estimate_reference') }}</label>
+                <input class="form-control {{ $errors->has('estimate_reference') ? 'is-invalid' : '' }}" type="text" name="estimate_reference" id="estimate_reference" value="{{ old('estimate_reference', '') }}" required>
                 @if($errors->has('estimate_reference'))
                     <div class="invalid-feedback">
                         {{ $errors->first('estimate_reference') }}
@@ -70,8 +70,8 @@
                 <span class="help-block">{{ trans('cruds.property.fields.estimate_reference_helper') }}</span>
             </div>
             <div class="form-group">
-                <label for="estimate_date">{{ trans('cruds.property.fields.estimate_date') }}</label>
-                <input class="form-control date {{ $errors->has('estimate_date') ? 'is-invalid' : '' }}" type="text" name="estimate_date" id="estimate_date" value="{{ old('estimate_date') }}">
+                <label class="required" for="estimate_date">{{ trans('cruds.property.fields.estimate_date') }}</label>
+                <input class="form-control date {{ $errors->has('estimate_date') ? 'is-invalid' : '' }}" type="text" name="estimate_date" id="estimate_date" value="{{ old('estimate_date') }}" required>
                 @if($errors->has('estimate_date'))
                     <div class="invalid-feedback">
                         {{ $errors->first('estimate_date') }}
@@ -319,7 +319,6 @@
                 @endif
                 <span class="help-block">{{ trans('cruds.property.fields.accident_photos_helper') }}</span>
             </div>
-
             <table class="table table-bordered">
                 <thead>
                     <tr>
@@ -329,7 +328,6 @@
                     <th scope="col">#</th>
                     <th scope="col">الاسم</th>
                     <th scope="col">القسم- الادارة</th>
-                    <th scope="col">التوقيع</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -347,7 +345,6 @@
                                 {{ $errors->first('dep_mang_1') }}
                             </div>
                         @endif</td>
-                    <td></td>
                   </tr>
                   <tr>
                     <th scope="row">2</th>
@@ -363,7 +360,6 @@
                                 {{ $errors->first('dep_mang_2') }}
                             </div>
                         @endif</td>
-                    <td></td>
                   </tr>
                   <tr>
                     <th scope="row">3</th>
@@ -379,7 +375,6 @@
                                 {{ $errors->first('dep_mang_3') }}
                             </div>
                         @endif</td>
-                    <td></td>
                   </tr>
                   <tr>
                     <th scope="row">4</th>
@@ -395,25 +390,9 @@
                                 {{ $errors->first('dep_mang_4') }}
                             </div>
                         @endif</td>
-                    <td></td>
                   </tr>
                 </tbody>
               </table>
-
-
-            <div class="form-group">
-                <div class="form-check {{ $errors->has('confidence') ? 'is-invalid' : '' }}">
-                    <input type="hidden" name="confidence" value="0">
-                    <input class="form-check-input" type="checkbox" name="confidence" id="confidence" value="1" {{ old('confidence', 0) == 1 || old('confidence') === null ? 'checked' : '' }}>
-                    <label class="form-check-label" for="confidence">{{ trans('cruds.property.fields.confidence') }}</label>
-                </div>
-                @if($errors->has('confidence'))
-                    <div class="invalid-feedback">
-                        {{ $errors->first('confidence') }}
-                    </div>
-                @endif
-                <span class="help-block">{{ trans('cruds.property.fields.confidence_helper') }}</span>
-            </div>
             <div class="form-group">
                 <button class="btn btn-danger" type="submit">
                     {{ trans('global.save') }}

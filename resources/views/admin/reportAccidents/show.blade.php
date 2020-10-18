@@ -411,14 +411,6 @@
                             {{ $reportAccident->dep_mang_4 }}
                         </td>
                     </tr>
-                    <tr>
-                        <th>
-                            {{ trans('cruds.reportAccident.fields.confidence') }}
-                        </th>
-                        <td>
-                            <input type="checkbox" disabled="disabled" {{ $reportAccident->confidence ? 'checked' : '' }}>
-                        </td>
-                    </tr>
                 </tbody>
             </table>
             <div class="form-group">

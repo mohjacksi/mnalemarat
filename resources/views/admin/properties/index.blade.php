@@ -47,12 +47,6 @@
                             {{ trans('cruds.property.fields.estimate_date') }}
                         </th>
                         <th>
-                            {{ trans('cruds.property.fields.damage_statement_1') }}
-                        </th>
-                        <th>
-                            {{ trans('cruds.property.fields.damage_value_1') }}
-                        </th>
-                        <th>
                             &nbsp;
                         </th>
                     </tr>
@@ -86,12 +80,6 @@
                             </td>
                             <td>
                                 {{ $property->estimate_date ?? '' }}
-                            </td>
-                            <td>
-                                {{ $property->damage_statement_1 ?? '' }}
-                            </td>
-                            <td>
-                                {{ $property->damage_value_1 ?? '' }}
                             </td>
                             <td>
                                 @can('property_show')

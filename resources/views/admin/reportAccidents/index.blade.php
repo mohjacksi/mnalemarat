@@ -49,7 +49,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.reportAccident.title_singular') }} {{ trans('global.list') }}
+        قائمة تقارير الحوادث
     </div>
 
     <div class="card-body">

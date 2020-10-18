@@ -3,7 +3,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('global.create') }} {{ trans('cruds.property.title_singular') }}
+        <h2>{{ trans('global.create') }} {{ trans('cruds.property.title_singular') }}</h2>
     </div>
 
     <div class="card-body">

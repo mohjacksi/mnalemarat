@@ -4,7 +4,7 @@
     <div style="margin-bottom: 10px;" class="row">
         <div class="col-lg-12">
             <a class="btn btn-success" href="{{ route('admin.properties.create') }}">
-                {{ trans('global.add') }} {{ trans('cruds.property.title_singular') }}
+                إضافة - إخلاء ممتلكات
             </a>
         </div>
     </div>
@@ -49,7 +49,7 @@
 
 <div class="card">
     <div class="card-header">
-        {{ trans('cruds.property.title_singular') }} {{ trans('global.list') }}
+        قائمة إخلاء الممتلكات
     </div>
 
     <div class="card-body">

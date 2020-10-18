@@ -14,7 +14,9 @@ td,
 label{
 font-family: 'Cairo', sans-serif !important;
 }
-
+li{
+    font-weight: bold;
+}
 .ck-editor__editable,
 textarea {
     min-height: 150px;

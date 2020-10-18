@@ -9,6 +9,44 @@
         </div>
     </div>
 @endcan
+<div class="panel-body">
+    <form id="export" method="post" action="{{route('admin.report.export')}}">@csrf
+        <div class="row">
+            <div class="form-group col-md-3" style="margin-top: 15px;">
+                <input form="export" name="type" value="properties" id="type" hidden>
+                <label>حدد كيف تريد الحصول على التقرير
+                </label>
+                <select class="form-control" form="export" name="date" id="date">
+                    <option value="0">الكل
+                    </option>
+                    <option value="1">اليوم</option>
+                    <option value="2">حسب النطاق الزمني
+                    </option>
+                </select>
+            </div>
+            <div class="form-group col-md-3" style="margin-top: 15px;">
+                <label for="start">تاريخ البداية</label>
+                <input class="form-control range" type="date" form="export" name="start" id="start"
+                readonly>
+            </div>
+            <div class="form-group col-md-3" style="margin-top: 15px;">
+                <label for="start">تاريخ النهاية</label>
+                <input class="form-control range" type="date" form="export" name="end" id="end"
+                readonly>
+            </div>
+
+            <div class="form-group col-md-3" style="margin-top: 15px;">
+                <label for="start">تصدير</label><br>
+
+                <button style="width: 250px;" class="btn btn-primary" form="export" type="submit">
+                                تصدير لإكسل
+                 </button>
+
+            </div>
+        </div>
+    </form>
+    </div>
+
 <div class="card">
     <div class="card-header">
         {{ trans('cruds.property.title_singular') }} {{ trans('global.list') }}
@@ -118,6 +156,22 @@
 @section('scripts')
 @parent
 <script>
+        function range_date(type) {
+            if (type == 'on') {
+                $('#date').removeAttr("disabled");
+            } else {
+                $('#date').attr("disabled", "disabled");
+            }
+        }
+
+        $('#date').on('change', function () {
+            if ($(this).val() == 2) {
+                $('.range').removeAttr("readonly");
+            } else {
+                $('.range').attr("readonly", "readonly");
+                $('.range').val('');
+            }
+        });
     $(function () {
   let dtButtons = $.extend(true, [], $.fn.dataTable.defaults.buttons)
 @can('property_delete')
@@ -160,7 +214,7 @@
       $($.fn.dataTable.tables(true)).DataTable()
           .columns.adjust();
   });
-  
+
 })
 
 </script>

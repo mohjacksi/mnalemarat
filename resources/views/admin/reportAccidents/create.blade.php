@@ -101,14 +101,20 @@
             </div>
             <table class="table table-bordered">
                 <thead>
-                  <tr>
-                    <th scope="col">#</th>
-                    <th scope="col">بيان الاضرار</th>
-                    <th scope="col">قيمة الاضرار</th>
-                    <th scope="col">ملاحظات</th>
-                  </tr>
-                </thead>
-                <tbody>
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col"><div class="form-group">
+                          <label class="required">بيان الاضرار</label>
+                      </div></th>
+                      <th scope="col"><div class="form-group">
+                          <label class="required">قيمة الاضرار</label>
+                      </div></th>
+                      <th scope="col"><div class="form-group">
+                          <label class="required">ملاحظات</label>
+                      </div></th>
+                    </tr>
+                  </thead>
+                  <tbody>
                   <tr>
                     <th scope="row">1</th>
                     <td><input class="form-control {{ $errors->has('damage_statement_1') ? 'is-invalid' : '' }}" type="text" name="damage_statement_1" id="damage_statement_1" value="{{ old('damage_statement_1', '') }}">
@@ -338,12 +344,19 @@
             <table class="table table-bordered">
                 <thead>
                     <tr>
-                        لجنة المعاينة
+
+                    <div class="form-group">
+                        <label class="required">لجنة المعاينة</label>
+                    </div>
                     </tr>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">الاسم</th>
-                    <th scope="col">القسم- الادارة</th>
+                    <th scope="col"><div class="form-group">
+                        <label class="required"></label>
+                    </div></th>
+                    <th scope="col"><div class="form-group">
+                        <label class="required">القسم- الادارة</label>
+                    </div></th>
                   </tr>
                 </thead>
                 <tbody>

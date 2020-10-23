@@ -1,4 +1,62 @@
 
+.c-sidebar {
+    background: #666292;
+}
+.c-sidebar .c-sidebar-nav-link:hover{
+    background-color: #7b72c9;
+}
+.c-sidebar .c-sidebar-nav-dropdown-toggle:hover{
+    background-color: #494663;
+}
+
+.c-sidebar .c-active.c-sidebar-nav-dropdown-toggle, .c-sidebar .c-sidebar-nav-link.c-active{
+    background-color: #6c4977;
+    font-weight: bold;
+    font-size:12px;
+
+
+
+}
+
+.btn-primary {
+    color: #fff;
+    background-color: #7b72c9;
+    border-color: #7b72c9;
+}
+.btn-primary:hover {
+    color: #fff;
+    background-color: #585570;
+    border-color: #585570;
+}
+.btn-link {
+    font-weight: 400;
+    color: #7b72c9;
+    text-decoration: none;
+}
+.btn-link:hover {
+    color: #585570;
+    text-decoration: underline;
+}
+
+div.dataTables_wrapper div.dataTables_length select {
+    width: 55px;
+    display: inline-block;
+    text-align: left;
+    direction: ltr;
+}
+.page-link {
+    position: relative;
+    display: block;
+    padding: .5rem .75rem;
+    line-height: 1.25;
+    border: 1px solid;
+    color: #7b72c9;
+    background-color: #fff;
+    border-color: #d8dbe0;
+}
+select {
+    font-size:8px;
+}
 a,
 p,
 h1,
@@ -15,7 +73,9 @@ label{
 font-family: 'Cairo', sans-serif !important;
 }
 li{
+    font-size:10px;
     font-weight: bold;
+
 }
 .ck-editor__editable,
 textarea {

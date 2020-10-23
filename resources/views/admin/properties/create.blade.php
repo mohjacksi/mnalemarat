@@ -83,9 +83,15 @@
                 <thead>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">بيان الاضرار</th>
-                    <th scope="col">قيمة الاضرار</th>
-                    <th scope="col">ملاحظات</th>
+                    <th scope="col"><div class="form-group">
+                        <label class="required">بيان الاضرار</label>
+                    </div></th>
+                    <th scope="col"><div class="form-group">
+                        <label class="required">قيمة الاضرار</label>
+                    </div></th>
+                    <th scope="col"><div class="form-group">
+                        <label class="required">ملاحظات</label>
+                    </div></th>
                   </tr>
                 </thead>
                 <tbody>
@@ -309,7 +315,7 @@
 
 
             <div class="form-group">
-                <label for="accident_photos">{{ trans('cruds.property.fields.accident_photos') }}</label>
+                <label class="required" for="accident_photos">{{ trans('cruds.reportAccident.fields.accident_photos') }}</label>
                 <div class="needsclick dropzone {{ $errors->has('accident_photos') ? 'is-invalid' : '' }}" id="accident_photos-dropzone">
                 </div>
                 @if($errors->has('accident_photos'))
@@ -317,17 +323,25 @@
                         {{ $errors->first('accident_photos') }}
                     </div>
                 @endif
-                <span class="help-block">{{ trans('cruds.property.fields.accident_photos_helper') }}</span>
+                <span class="help-block">{{ trans('cruds.reportAccident.fields.accident_photos_helper') }}</span>
             </div>
-            <table class="table table-bordered">
+
+            <table class="table table-bordered form-group">
                 <thead>
                     <tr>
-                        لجنة المعاينة
+
+                    <div class="form-group">
+                        <label class="required">لجنة المعاينة</label>
+                    </div>
                     </tr>
                   <tr>
                     <th scope="col">#</th>
-                    <th scope="col">الاسم</th>
-                    <th scope="col">القسم- الادارة</th>
+                    <th scope="col"><div class="form-group">
+                        <label class="required"></label>
+                    </div></th>
+                    <th scope="col"><div class="form-group">
+                        <label class="required">القسم- الادارة</label>
+                    </div></th>
                   </tr>
                 </thead>
                 <tbody>

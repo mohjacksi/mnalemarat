@@ -85,7 +85,7 @@ return [
             'the_contractor_helper'              => ' ',
             'purchase_order'                     => 'أمر الشراء',
             'purchase_order_helper'              => ' ',
-            'date_of_purchase'                   => 'تاريخ امر الشراء',
+            'date_of_purchase'                   => 'أمر الشراء',
             'date_of_purchase_helper'            => ' ',
             'project_reference'                  => 'مرجع المشروع (السنة)',
             'project_reference_helper'           => ' ',

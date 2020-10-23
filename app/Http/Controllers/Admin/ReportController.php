@@ -33,6 +33,20 @@ use Symfony\Component\HttpFoundation\Response;
 
 class ReportController extends Controller
 {
+    public function projects()
+    {
+        return view('admin.reports.projects');
+    }
+
+    public function properties()
+    {
+        return view('admin.reports.properties');
+    }
+    public function accidents()
+    {
+        return view('admin.reports.accidents');
+    }
+
     public function reportExport(Request $request)
     {
         if ($request->type == 'projects') {

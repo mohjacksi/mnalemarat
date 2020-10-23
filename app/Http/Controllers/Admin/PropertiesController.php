@@ -21,7 +21,7 @@ class PropertiesController extends Controller
     {
         abort_if(Gate::denies('property_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $properties = Property::all();
+        $properties = Property::orderBy('id')->get();
 
         return view('admin.properties.index', compact('properties'));
     }

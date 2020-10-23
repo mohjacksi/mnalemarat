@@ -23,7 +23,7 @@
     <style>
         body{
             background-image: url({{ asset('bg.jpg') }})!important;
-            background-size: cover;
+            background-size: 100% auto;
         }
         .c-app {
             background-color: rgba(0, 0, 0, 0) !important;

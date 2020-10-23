@@ -108,6 +108,46 @@
                     @endcan
                 </ul>
             </li>
+            <li class="c-sidebar-nav-dropdown">
+                <a class="c-sidebar-nav-dropdown-toggle" href="#">
+                    <i class="fa-fw fas fa-search c-sidebar-nav-icon">
+
+                    </i>
+                    تقارير
+                </a>
+                <ul class="c-sidebar-nav-dropdown-items">
+                    @can('project_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.reports.projects") }}" class="c-sidebar-nav-link {{ request()->is("admin/projects") || request()->is("admin/projects/*") ? "active" : "" }}">
+                                <i class="fa-fw far fa-building c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.project.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                    @can('property_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.reports.properties") }}" class="c-sidebar-nav-link {{ request()->is("admin/properties") || request()->is("admin/properties/*") ? "active" : "" }}">
+                                <i class="fa-fw far fa-arrow-alt-circle-up c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.property.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                    @can('report_accident_access')
+                        <li class="c-sidebar-nav-item">
+                            <a href="{{ route("admin.reports.accidents") }}" class="c-sidebar-nav-link {{ request()->is("admin/report-accidents") || request()->is("admin/report-accidents/*") ? "active" : "" }}">
+                                <i class="fa-fw fas fa-car c-sidebar-nav-icon">
+
+                                </i>
+                                {{ trans('cruds.reportAccident.title') }}
+                            </a>
+                        </li>
+                    @endcan
+                </ul>
+            </li>
         @endcan
         @if(file_exists(app_path('Http/Controllers/Auth/ChangePasswordController.php')))
             @can('profile_password_edit')

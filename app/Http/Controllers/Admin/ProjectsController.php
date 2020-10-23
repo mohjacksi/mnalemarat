@@ -21,7 +21,7 @@ class ProjectsController extends Controller
     {
         abort_if(Gate::denies('project_access'), Response::HTTP_FORBIDDEN, '403 Forbidden');
 
-        $projects = Project::all();
+        $projects = Project::orderBy('id')->get();
 
         return view('admin.projects.index', compact('projects'));
     }

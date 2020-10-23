@@ -53,6 +53,12 @@ Route::group(['prefix' => 'admin', 'as' => 'admin.', 'namespace' => 'Admin', 'mi
     //Export Excel
     Route::post('report/export', 'ReportController@reportExport')->name('report.export');
 
+
+    //Reports Page
+    Route::get('report/projects', 'ReportController@projects')->name('reports.projects');
+    Route::get('report/properties', 'ReportController@properties')->name('reports.properties');
+    Route::get('report/accidents', 'ReportController@accidents')->name('reports.accidents');
+
 });
 Route::group(['prefix' => 'profile', 'as' => 'profile.', 'namespace' => 'Auth', 'middleware' => ['auth']], function () {
 // Change password

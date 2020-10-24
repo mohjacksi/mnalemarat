@@ -53,6 +53,7 @@ class UsersController extends Controller
 
     public function update(UpdateUserRequest $request, User $user)
     {
+        
         $user->update($request->all());
         $user->roles()->sync($request->input('roles', []));
 

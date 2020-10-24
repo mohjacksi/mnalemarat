@@ -42,7 +42,6 @@ class Kernel extends HttpKernel
             \App\Http\Middleware\AuthGates::class,
             \App\Http\Middleware\SetLocale::class,
             \App\Http\Middleware\ApprovalMiddleware::class,
-            \App\Http\Middleware\VerificationMiddleware::class,
         ],
     ];
 }

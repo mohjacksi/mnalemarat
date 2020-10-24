@@ -425,10 +425,7 @@
         console.log(diffTime + " milliseconds");
         console.log(diffDays + " days");
 
-        if(diffDays > 0)
-            $("#delay_days").val(diffDays);
-        else
-            $("#delay_days").val(0);
+        $("#delay_days").val(diffDays);
 
     });
 

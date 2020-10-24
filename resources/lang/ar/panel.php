@@ -1,5 +1,5 @@
 <?php
 
 return [
-    'site_title' => 'من الامارات',
+    'site_title' => 'الاشراف والمتابعه',
 ];

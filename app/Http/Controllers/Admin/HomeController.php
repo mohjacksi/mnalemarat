@@ -23,19 +23,16 @@ class HomeController
         $chart1 = new LaravelChart($settings1);
 
         $settings2 = [
-            'chart_title'           => 'متوسط سعر المشروع',
-            'chart_type'            => 'bar',
-            'report_type'           => 'group_by_date',
-            'model'                 => 'App\\Project',
-            'group_by_field'        => 'date_of_purchase',
-            'group_by_period'       => 'day',
-            'aggregate_function'    => 'avg',
-            'aggregate_field'       => 'initial_project_value',
-            'filter_field'          => 'created_at',
-            'filter_period'         => 'year',
-            'group_by_field_format' => 'Y-m-d',
-            'column_class'          => 'col-md-6',
-            'entries_number'        => '5',
+            'chart_title'        => 'نسبة انجاز المشاريع',
+            'chart_type'         => 'line',
+            'report_type'        => 'group_by_string',
+            'model'              => 'App\Project',
+            'group_by_field'     => 'project_name',
+            'aggregate_function' => 'sum',
+            'aggregate_field'    => 'completion_rate',
+            'filter_field'       => 'created_at',
+            'column_class'       => 'col-md-6',
+            'entries_number'     => '5',
         ];
 
         $chart2 = new LaravelChart($settings2);

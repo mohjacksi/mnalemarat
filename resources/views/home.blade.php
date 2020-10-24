@@ -86,11 +86,10 @@
                             <table class="table table-bordered table-striped">
                                 <thead>
                                     <tr>
-                                        @foreach($settings7['fields'] as $key => $value)
                                             <th>
-                                                {{ trans(sprintf('cruds.%s.fields.%s', strtolower(last(explode('\\', $settings7['model']))), $key)) }}
-                                            </th>
-                                        @endforeach
+ID                                            </th>
+                                            <th>
+الحادث                                            </th>
                                     </tr>
                                 </thead>
                                 <tbody>
